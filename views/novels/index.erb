@@ -1,0 +1,14 @@
+<h2><%= @title %></h2>
+<!--loop over all the chapters  -->
+<% @chapters.each do |chapter| %>
+<section>
+  <!--set a link to the chapters id, with the text being the chapters title-->
+  <a href="/<%= chapter[:id]%>"><h3><%= chapter[:title]%></h3></a>
+  <div>
+    <!--show only 100 chars of the chapters body
+    in the event it might be to big we can limit it here
+    just for an overview§-->
+    <%= chapter[:chapter_body][0..100] %>
+  </div>
+</section>
+<% end %>
