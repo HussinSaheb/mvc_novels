@@ -1,3 +1,5 @@
+/*was playing with json file read and write to on each field.
+kept crashing as the formatting gets overwritten when we write back to the file*/
 [{
   "chapter_number": 1,
   "title" :"Chapter 1",

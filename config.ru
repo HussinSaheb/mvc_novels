@@ -2,7 +2,6 @@ require 'sinatra'
 require 'sinatra/contrib'
 require 'sinatra/reloader' if development?
 require 'pry'
-require 'json'
 require_relative './controllers/novel_controller.rb'
 
 use Rack::Reloader

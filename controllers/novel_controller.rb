@@ -10,7 +10,7 @@ class NovelController < Sinatra::Base
     register Sinatra::Reloader
   end
 
-
+# a hard coded array of hashs
   $novel_chapters = [{
     "id": 0,
     "chapter_number": 1,
@@ -35,16 +35,19 @@ class NovelController < Sinatra::Base
     "title": "chapter 4",
     "chapter_body": "this is chapter 4"
   }]
-
+ #  set title to novel title
   get '/' do
     @title = "Novel Title"
+    # pass the array to the chapter variable
     @chapters = $novel_chapters
+    # show the index view erv
     erb :'novels/index'
   end
-
+  # a new chapter has a title of new chapter
   get '/new' do
     @title = "New chapter"
     @chapter = {
+      # fields are empty just to display empty form
       id: '',
       chapter_number: '',
       title: '',
@@ -75,30 +78,33 @@ class NovelController < Sinatra::Base
     # display the show view
     erb :'novels/show'
   end
-
+  # set title to edit chapter
   get '/:id/edit' do
     @title= "Edit Chapter"
+    # get the id
     id = params[:id].to_i
+    # use the id to access the right chapter
     @chapter = $novel_chapters[id]
     erb :'novels/edit'
   end
-
+  # update a current chapter
   put '/:id' do
+    #  get the id
     id = params[:id].to_i
+    #  access the specific id chapter
     chapter = $novel_chapters[id]
+    # set the new objects title field to be the paramater title
     chapter[:title] = params[:title]
     chapter[:chapter_body] = params[:chapter_body]
+    # pass back the chapter into the same id we accessed earlier
     $novel_chapters[id] = chapter
     redirect "/"
   end
-
+# remove a chapter
   delete '/:id' do
     id = params[:id].to_i
+    # deletes at the index which is the id
     $novel_chapters.delete_at(id)
     redirect "/"
   end
-
-
-
-
 end

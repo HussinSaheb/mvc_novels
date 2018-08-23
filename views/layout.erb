@@ -5,7 +5,9 @@
     <title><%= @title %></title>
   </head>
   <body>
+    <!--call the partial view navigation  -->
     <%= erb(:'partials/navigation', :layout => false) %>
+    <!--add in the requested page using the yield  -->
     <%= yield  %>
   </body>
 </html>
