@@ -1,0 +1,9 @@
+<h2><%= @title %></h2>
+<% @chapters.each do |chapter| %>
+<section>
+  <a href="/<%= chapter[:id]%>"><h3><%= chapter[:title]%></h3></a>
+  <div>
+    <%= chapter[:chapter_body][0..100] %>
+  </div>
+</section>
+<% end %>

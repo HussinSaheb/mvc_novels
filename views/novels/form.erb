@@ -1,0 +1,21 @@
+<form action="/<%= @chapter[:id] %>" method="post">
+  <div >
+    <label for="chapter_number">Chapter Number</label>
+    <input type="text" name="chapter_number" value="<%= @chapter[:chapter_number]%>">
+  </div>
+  <div >
+    <label for="title">Chapter Title</label>
+    <input type="text" name="title" value="<%= @chapter[:title]%>">
+  </div>
+  <div class="">
+    <label for="chapter_body">Body</label>
+    <textarea name="chapter_body"><%= @chapter[:chapter_body] %></textarea>
+  </div>
+  <div >
+    <input type="submit" value="Save Post">
+  </div>
+  <!-- if the post field is not empty, as in we can update, we use put -->
+  <% if @chapter[:id] != "" %>
+    <input type="hidden" name="_method" value="PUT">
+  <% end %>
+</form>

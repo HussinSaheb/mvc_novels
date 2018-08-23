@@ -1,0 +1,18 @@
+
+<section class="container">
+  <div class="row">
+    <h3><%= @chapter[:title] %></h3>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= @chapter[:chapter_body] %>
+    </div>
+  </div>
+  <div class="row">
+    <a href="/<%=@chapter[:id]%>/edit">Edit Chapter</a>
+    <form class="" action="/<%= @chapter[:id] %>" method="post">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Delete">
+    </form>
+  </div>
+</section>
